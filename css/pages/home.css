@@ -1,7 +1,7 @@
 /* base */
 @import "../base/reset.css";
-@import "../base/layout.css";
 @import "../base/variables.css";
+@import "../base/layout.css";
 
 /* 3rd-party */
 @import "../components/font-awesome.min.css";
@@ -13,38 +13,45 @@
 @import "../components/mouse.css";
 @import "../components/progress-bar.css";
 
-/* HEADER */
+/* CUSTOM STYLE BELOW THIS COMMENT, FOR THIS PAGE */
+
+/* HERO: start */
 .hero {
-  min-height: 70vh;
+  min-height: 100vh;
   padding-bottom: 30px;
   background-image: url(../../img/banner-1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
+
 .hero > .row-short {
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  margin-bottom: 45px;
+.hero .logo {
+  width: 100%;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
 }
-.main-title {
+
+.hero .main-title {
   font-size: 44px;
   text-transform: uppercase;
-  margin-bottom: 15px;
 }
-.main-description {
-  color: #777;
+
+.hero .main-description {
   font-size: 18px;
-  margin-bottom: 30px;
+  color: #777;
 }
+
 .hero .clock {
-  margin-bottom: 45px;
 }
+
 .hero .form {
   width: 90%;
-  margin: 0 5% 40px;
 }
 .hero .form > .input {
   color: #fff;
@@ -53,27 +60,28 @@
 .hero .form > .input::placeholder {
   color: currentColor;
 }
+/* HERO: end */
 
-/* MAIN CONTENT */
+/* MAIN CONTENT: start */
 .column > * {
-  margin-bottom: 20px;
 }
 .column > *:last-child {
-  margin-bottom: 0;
 }
 
 .content-title {
   text-transform: uppercase;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 1.2em;
   position: sticky;
-  top: 20px;
+  top: 0;
   background-color: #fff;
 }
+
 .content-description {
   font-size: 17px;
   color: #999;
 }
+
 .content-description > .link {
   color: var(--secondary-color);
   text-decoration: none;
@@ -81,29 +89,34 @@
 .content-description > .link:hover {
   text-decoration: underline;
 }
-main form > button {
-  float: right;
-}
-@media (min-width: 900px) {
-  main .form > input.input {
-    width: calc(50% - 10px);
-  }
-  main .form > input.input:last-of-type {
-    float: right;
-  }
+
+main .form > button {
+  align-self: flex-end;
 }
 
-/* FOOTER */
+@media (min-width: 900px) {
+  main .form > input.input {
+  }
+  main .form > input.input:last-of-type {
+  }
+}
+/* MAIN CONTENT: end */
+
+/* FOOTER: start */
 footer.container {
   padding-top: 0;
-  color: #fff8;
   font-size: 17px;
-}
-.socials {
-  position: relative;
-  padding: 15px 0;
   text-align: center;
+  color: #fff8;
+}
+.container > .socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px 0;
   border-bottom: 2px solid #fff;
+  position: relative;
 }
 .socials > .social {
   width: 50px;
@@ -113,32 +126,30 @@ footer.container {
   font-size: 24px;
   text-decoration: none;
   border-radius: 50%;
-  transition: all 0.5s;
+  transition: all 300ms;
 }
 .socials > .social:hover {
   background-color: #fff;
   color: var(--primary-color);
 }
-.row-short {
-  text-align: center;
+
+footer.container > .row-short {
+  gap: 0;
 }
+
 footer .logo {
   max-height: 50px;
   width: 100%;
-  margin: 50px 0;
+  margin-bottom: 40px;
   object-fit: contain;
   object-position: top;
 }
-footer .link {
-  color: #fff;
-  text-decoration: none;
-}
-footer .trio {
-  display: inline-block;
-}
 
+footer .trio {
+  display: flex;
+  justify-content: center;
+}
 footer .trio > p {
-  float: left;
   padding: 0 10px;
   position: relative;
 }
@@ -147,34 +158,48 @@ footer .trio > p::before {
   content: "";
   display: inline-block;
   width: 1px;
-  height: 1em;
+  height: 70%;
   background-color: #fff;
   position: absolute;
   top: 50%;
-  left: 0%;
+  left: 0;
   transform: translate(-50%, -50%);
 }
 footer .trio > p:first-child::before {
   display: none;
 }
+
+footer .link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dollar::before {
+  content: "$";
+}
+.dollar::after {
+  content: "🎅";
+}
+
 @media (max-width: 700px) {
-  footer .trio > p {
-    width: 100%;
+  footer .trio {
+    flex-direction: column;
   }
   footer .trio > p::before {
     display: none;
   }
 }
+/* FOOTER: end */
 
 .back-to-top {
   /* position: fixed;
-  bottom: 40px;
-  right: 40px; */
+    bottom: 40px;
+    right: 40px; */
   position: absolute;
-  top: -31px;
-  right: -15px;
-  box-shadow: 0px 4px 22px #000;
+  top: -0.8em;
+  right: -0.4em;
 }
+
 @media (max-width: 700px) {
   .back-to-top {
     display: none;
